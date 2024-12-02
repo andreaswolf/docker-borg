@@ -106,7 +106,7 @@ fi
 
 # If the $BORG_REPO is a local path and the directory is empty, init it
 # shellcheck disable=SC2086
-if [ "${BORG_REPO:0:1}" == '/' ] && [ ! "$(ls -A $BORG_REPO)" ]; then
+if [ "${BORG_REPO:0:1}" == '/' ] && [ ! "$(ls -A $BORG_REPO)" ] && [ "${BORG_REPO_NOINIT:-0}" -eq 1; then
     INIT_REPO=1
 fi
 
